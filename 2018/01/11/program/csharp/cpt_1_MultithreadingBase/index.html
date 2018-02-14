@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			
+    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">NextLeaves</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Main/">Main</a></li><li><a class="category-link" href="/categories/program/">program</a></li><li><a class="category-link" href="/categories/unity3d-manual/">unity3d_manual</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/NextLeaves" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/Ea6KjNB.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Multithreading Base cpt1</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <hr>
+<h1 id="第一章-多线程基础"><a href="#第一章-多线程基础" class="headerlink" title="第一章 多线程基础"></a>第一章 多线程基础</h1><ul>
+<li>C#中基本的线程操作</li>
+</ul>
+<hr>
+<h1 id="Multithreading-Base"><a href="#Multithreading-Base" class="headerlink" title="Multithreading Base"></a>Multithreading Base</h1><ul>
+<li>2018/1/12 15:04:32 </li>
+</ul>
+<h2 id="1-1-线程的创建"><a href="#1-1-线程的创建" class="headerlink" title="1.1 线程的创建"></a>1.1 线程的创建</h2><ul>
+<li>名称空间：using System.Threading;</li>
+<li>引用类：using static System.Threading.Thread;（C#6.0用法，引入Thread的静态函数，属性）</li>
+<li>Thread类—实例化类—参数为函数名</li>
+</ul>
+<h2 id="1-2-暂停线程"><a href="#1-2-暂停线程" class="headerlink" title="1.2 暂停线程"></a>1.2 暂停线程</h2><ul>
+<li>意义：暂停线程的操作，暂停时刻不占有计算机资源</li>
+<li>实例函数：<strong>.Sleep(Timespan.FromSeconds(2000))</strong></li>
+</ul>
+<h2 id="1-3-线程等待"><a href="#1-3-线程等待" class="headerlink" title="1.3 线程等待"></a>1.3 线程等待</h2><ul>
+<li>意义：有约束的线程操作，直到线程执行完后才进行后续操作，在之前一直处于阻塞状态</li>
+<li>实例函数：<strong>.Join()</strong></li>
+</ul>
+<h2 id="1-4-终止线程"><a href="#1-4-终止线程" class="headerlink" title="1.4 终止线程"></a>1.4 终止线程</h2><ul>
+<li>意义：立刻结束线程的执行，对于停掉线程的操作很有必要</li>
+<li>实例函数：<strong>.Abort()</strong><ul>
+<li>实际是：向线程注入<strong>ThreadAbortException()</strong>函数，导致线程终止</li>
+<li>但，线程可以处理异常，如调用<strong>Thread.ResetAbort()</strong>函数，可以不停止操作</li>
+</ul>
+</li>
+<li>推荐使用一下方法<strong>终止线程</strong>：<ul>
+<li>传入<strong>CancellationToken()</strong>方法，具体第三章会涉及到</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-5-检测线程状态"><a href="#1-5-检测线程状态" class="headerlink" title="1.5 检测线程状态"></a>1.5 检测线程状态</h2><ul>
+<li>意义：在处理、操作线程时候，应判断线程的状态，再进行具体的操作</li>
+<li>实例属性：<strong>.ThreadState</strong></li>
+</ul>
+<h2 id="1-6-线程优先级"><a href="#1-6-线程优先级" class="headerlink" title="1.6 线程优先级"></a>1.6 线程优先级</h2><ul>
+<li>意义：优先级决定线程能够获得计算机获得多少的资源</li>
+<li>实例属性：<strong>.Priority</strong><ul>
+<li>枚举：ThreadPriority<ul>
+<li>Highest</li>
+<li>Lowest</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-7-前台线程和后台线程"><a href="#1-7-前台线程和后台线程" class="headerlink" title="1.7 前台线程和后台线程"></a>1.7 前台线程和后台线程</h2><ul>
+<li>意义：应用在关闭的时候，前台线程必须全部执行完才能结束应用；后台线程可以在任何时候进行中断</li>
+<li>实例属性：<strong>.IsBackground</strong></li>
+</ul>
+<h2 id="1-8-向线程传递参数"><a href="#1-8-向线程传递参数" class="headerlink" title="1.8 向线程传递参数"></a>1.8 向线程传递参数</h2><ul>
+<li>意义：可以动态的向线程传递参数，便于处理主线程的数据</li>
+<li>两种传参方法：<ul>
+<li><strong>第一种：</strong>嵌套函数，调用函数的参数为Object类型的参数；再进行转换参数；在Start()函数中进行传参</li>
+<li><strong>第二种：</strong>使用Lambda表达式，嵌入所需调用的函数，但Lambda为无参的函数<ul>
+<li>Lambda表达式所遇两种问题：<ol>
+<li>传入的是常量，或者固定的值，不影响线程的执行</li>
+<li>传入的是变量，此时会产生一种问题，<strong>闭包问题</strong><ul>
+<li>被捕获的变量，将在IL中生成一个临时存储的数据类型，然后不会在<em>作用域*</em>里面重置、删除变量值</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-9-C-中的lock关键字"><a href="#1-9-C-中的lock关键字" class="headerlink" title="1.9 C#中的lock关键字"></a>1.9 C#中的lock关键字</h2><ul>
+<li>意义：处理多线程中竞争问题，竞争条件是多线程中导致应用程序处理失败的原因</li>
+<li>实质：是<strong>Monitor类</strong>的一个语法糖</li>
+</ul>
+<p>`</p>
+<pre><code>//语法糖的书写方式
+public readonly Object _sync = new Object();
+lock(_sync)
+{
+    count++;
+}
+
+//实际Monitor类书写方式
+bool requiredLock=false;
+try
+{
+    Monitor.Enter(_sync,ref requiredLock)
+    {
+        //implement
+    }
+}
+finally
+{
+    if(requiredLock)Monitor.Exit(_sync);
+}
+</code></pre><h2 id="2-10-Monitor类锁定资源"><a href="#2-10-Monitor类锁定资源" class="headerlink" title="2.10 Monitor类锁定资源"></a>2.10 Monitor类锁定资源</h2><ul>
+<li>意义：在多线程中，资源的同时操作会导致数据错误，所以保证资源在同一时间只有一个线程进行操作是很有必要的，但是lock嵌套操作等，会造成<strong>死锁</strong>问题<ul>
+<li>造成<strong>死锁</strong>的四个条件：<ul>
+<li>竞争条件</li>
+<li>循环等待</li>
+<li>请求等待</li>
+<li>不剥夺（此乃操作系统机制，无法改变）</li>
+</ul>
+</li>
+<li>解决死锁问题，从前三个方面着手考虑，Monitor类，就是此处存在的意义</li>
+</ul>
+</li>
+</ul>
+<p>`</p>
+<pre><code>//Monitor类使用方法
+lock(object2)
+{
+    if(Monitor.TryEnter(object1,TimeSpan.FromSeconds(5)))
+    {
+        //获取资源后处理成功
+    }else
+    {
+        //未获取资源失败，跳出等待条件
+    }
+}
+
+//死锁状态
+//若一直无法获取object1的使用权限，则造成死锁，程序终止运行
+lock(object2)
+{
+    lock(object1)
+    {
+        //获取资源后处理成功
+    }
+}
+</code></pre><h2 id="2-11-在多线程中处理异常"><a href="#2-11-在多线程中处理异常" class="headerlink" title="2.11 在多线程中处理异常"></a>2.11 在多线程中处理异常</h2><ul>
+<li>意义：在多线程中遇到错误，需要进行异常处理的情况下；主线程是无法捕获其他线程的异常的，所以在该线程操作块里面进行try.catch操作是很有必要的</li>
+<li>在.NET1.0和1.1中，应用程序不会因为未捕获异常而导致程序崩溃</li>
+</ul>
+<p>`</p>
+<pre><code>//更改配置文件
+&lt;configuration&gt;
+    &lt;runtime&gt;
+        &lt;legacyUnhandledExceptionPolicy enabled=&quot;1&quot; /&gt;
+    &lt;/runtime&gt;
+&lt;/configuration&gt;
+</code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/01/11/program/csharp/cpt_1_MultithreadingBase/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/01/11/program/csharp/cpt_1_MultithreadingBase/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
