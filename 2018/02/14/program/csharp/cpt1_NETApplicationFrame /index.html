@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			
+    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">NextLeaves</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Main/">Main</a></li><li><a class="category-link" href="/categories/program/">program</a></li><li><a class="category-link" href="/categories/unity3d-manual/">unity3d_manual</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/NextLeaves" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/iI24evE.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >NET Application Frame</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <hr>
+<h1 id="第一章-NET应用程序体系结构"><a href="#第一章-NET应用程序体系结构" class="headerlink" title="第一章 .NET应用程序体系结构"></a>第一章 .NET应用程序体系结构</h1><ul>
+<li>.NET历史</li>
+<li>.NET4.6和.NET Core的关系与区别</li>
+<li>通用语言运行库（CLR）</li>
+<li>NuGet包和程序集</li>
+<li>Windows运行库的特性</li>
+<li>编写Hello World程序</li>
+<li>通用Windos平台</li>
+<li>创建Windos应用程序技术</li>
+<li>创建Web应用程序的技术</li>
+</ul>
+<hr>
+<h1 id="NET-Application-Frame"><a href="#NET-Application-Frame" class="headerlink" title="NET Application Frame"></a>NET Application Frame</h1><h2 id="1-1-选择技术"><a href="#1-1-选择技术" class="headerlink" title="1.1 选择技术"></a>1.1 选择技术</h2><ul>
+<li>针对开发不同的应用程序（windows、web），服务的不同技术信息，选择合适的开发工具</li>
+</ul>
+<h2 id="1-2-回顾-NET历史"><a href="#1-2-回顾-NET历史" class="headerlink" title="1.2 回顾.NET历史"></a>1.2 回顾.NET历史</h2><ul>
+<li>知道新技术还不够，应该了解新技术在旧技术上面的迭代和方式和运作原理</li>
+<li>.NET 1.0 – CLR 1.0 – C# 1.0 – Visual Studio 2002</li>
+</ul>
+<h3 id="1-2-1-C-1-0"><a href="#1-2-1-C-1-0" class="headerlink" title="1.2.1 C# 1.0"></a>1.2.1 C# 1.0</h3><ul>
+<li>开发java的sun公司，不同意微软修改java用于.net framework开发</li>
+<li>设计者Anders Hejlskerg（安德斯·海尔斯伯格）</li>
+<li>借鉴于java和c++的特点：<ul>
+<li>if语句中的boolean</li>
+<li>struct和class定义结构类型和类类型（java只有引用类型，即class）</li>
+<li>允许使用虚拟方法和非虚拟方法（java都是虚拟方法）</li>
+</ul>
+</li>
+<li>编程语言都有自己的运行库：<ul>
+<li>C++运行库</li>
+<li>VB运行库为VBRun</li>
+<li>Java运行库为JVM</li>
+</ul>
+</li>
+<li>CLR是每种.NET编程语言都要使用的运行库<ul>
+<li>JSScript.NET - JS编译器</li>
+<li>Visual Studio.NET - Visual Basic</li>
+<li>Managed C++ - C++/CLR</li>
+<li>C# - C#编译器</li>
+</ul>
+</li>
+<li>.NET编译器生成中间语言IL<ul>
+<li>使用程序ildasm.exe可以反编译，获取中间语言</li>
+<li>CLR包含一个即时编译器(JIT),程序运行的时候，JIT会把IL编译为本地代码；IL中间语言，又称托管代码</li>
+<li>CLR其他为：<ul>
+<li>GC，垃圾回收机制</li>
+<li>Debug，调试器扩展</li>
+<li>Thread，线程实用工具</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>.NET Framework第一版特点：<ul>
+<li>名称空间解决类名冲突</li>
+<li>Windows Forms（创建窗口应用程序）</li>
+<li>ASP.NET Web Forms（创建Web应用程序）</li>
+<li>ASP.NET Web Services（应用程序与Web服务通信）</li>
+<li>.NET Remoting（.NET应用程序之间更快的通信）</li>
+<li>Enterprise Forms（应用程序服务器上的COM+组件）</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-2-C-2和-NET2"><a href="#1-2-2-C-2和-NET2" class="headerlink" title="1.2.2 C#2和.NET2"></a>1.2.2 C#2和.NET2</h3><ul>
+<li>泛型的创建（System.Collections.Generic;）</li>
+<li>1.0中的就集合类很少使用</li>
+</ul>
+<h3 id="1-2-3-NET3-0时代"><a href="#1-2-3-NET3-0时代" class="headerlink" title="1.2.3 .NET3.0时代"></a>1.2.3 .NET3.0时代</h3><ul>
+<li>创建Windos桌面应用程序（WPF）</li>
+<li>Windows Forms与WPF区别：<ul>
+<li>前者基于像素，后者基于DirectX</li>
+<li>后者使用矢量图，无缩放调整</li>
+<li>后者允许完全自定义外观</li>
+</ul>
+</li>
+<li>System.Windos；下全部内容为WPF，除System.Windos.From;</li>
+<li>用户界面使用XML语法设计XAML（XML For Applicaiton Markup Language）</li>
+<li>ASP.NET Web Services和.NET Remoting用于web通信</li>
+<li>Message Queuing用于通信的另一个选择</li>
+<li>企业应用程序需要用几种通信API，学习成本高<ul>
+<li>WCF：<ul>
+<li>把其他API集中体现到一个API中</li>
+<li>但为支持WCF的所有功能，需要配置WCF</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Windos WF(WrokFlow Foundation)和System.Workflow<ul>
+<li>不是为了应用程序创建自定义的工作流程序，而是把工作流引擎作为应用程序的一部分</li>
+</ul>
+</li>
+<li>8000个类增加到12000个类</li>
+</ul>
+<h3 id="1-2-4-C-3-0和-NET3-5时代-LINQ"><a href="#1-2-4-C-3-0和-NET3-5时代-LINQ" class="headerlink" title="1.2.4 C#3.0和.NET3.5时代 -LINQ"></a>1.2.4 C#3.0和.NET3.5时代 -LINQ</h3><ul>
+<li>C#定义的查询语法，允许使用相同的语法过滤和排序<strong>对象列表、XML文件、数据库</strong></li>
+<li>语言增强，使用更少的代码，达到相同的功能</li>
+<li>LINQ TO SQL为.NET3.5的一部分，但EntityFramework更强大<ul>
+<li>两者都提供从层次结构到数据库映射和LINQ提供程序</li>
+<li>前者简单，后者强大</li>
+</ul>
+</li>
+<li>System.AddIn<ul>
+<li>提供插件模型；外部运行插件的强大功能；使用较为复杂</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-5-C-4和-NET4-0-dynamic-和TPL"><a href="#1-2-5-C-4和-NET4-0-dynamic-和TPL" class="headerlink" title="1.2.5 C#4和.NET4.0 - dynamic 和TPL"></a>1.2.5 C#4和.NET4.0 - dynamic 和TPL</h3><ul>
+<li>动态集成脚本，更容易使用COM集成</li>
+<li>C#语法扩展dynamic关键字、命名参数和可选参数以及泛型增强的协变和逆变</li>
+<li>任务并行库（TPL，Task Parallel library）</li>
+<li>Task类和Parallel类抽象出线程，易于编程</li>
+<li>旧引擎workflow未实现应有功能，在此发布全新的Workflow Engine(System.Activity)</li>
+<li>运行库的升级，从版本2调到版本4</li>
+<li>发布VS2010，同时发布一款创建Web应用程序的新技术-ASP.NET MVC2.0<ul>
+<li>与ASP.NET Web Froms不同的是，需要使用HTML和JS</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-6-C-5和异步编程"><a href="#1-2-6-C-5和异步编程" class="headerlink" title="1.2.6 C#5和异步编程"></a>1.2.6 C#5和异步编程</h3><ul>
+<li>async和await，大大简化异步编程<ul>
+<li>不阻塞UI线程，提高响应</li>
+<li>收拾的反应速度</li>
+</ul>
+</li>
+<li>Windos Store应用程序（Modern应用程序，Metro应用程序，通用Windos应用程序，Windos应用程序）<ul>
+<li>Windos8中的Windos Store开发新的API（实际为底层映射代码）</li>
+<li>称为Windos运行库</li>
+</ul>
+</li>
+<li>System.AddIn过于复杂</li>
+<li>独立于平台的通信协议新版本：ASP.NET Web API<ul>
+<li>WCF提供有状态，无状态服务；以及不同的网络协议</li>
+<li>ASP.NET Web API更简单，基于RESTCRepresentational State Transferl软件架构风格</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-7-C-6和-NET-Core"><a href="#1-2-7-C-6和-NET-Core" class="headerlink" title="1.2.7 C#6和.NET Core"></a>1.2.7 C#6和.NET Core</h3><ul>
+<li>许多小而是用的语言增强；通过新的编译器引起Roslyn来实现</li>
+<li>Microsoft Silverlight是Web浏览器插件，支持动态内容<ul>
+<li>代码WPF/E即WPF Everywhere</li>
+<li>第一个版本只支持JS</li>
+</ul>
+</li>
+<li>.NET框架的巨大，导致更新周期长；现今开发快节奏的时代，也需要大的改进<ul>
+<li>创建Fremework新版本，.NETCore</li>
+<li>.NET Core<ul>
+<li>模块化的NuGet包，以及每个应用程序的运行库是开源的</li>
+<li>不仅用于Windos桌面版，许多不同Windos设备</li>
+<li>以及LInus和OS X中</li>
+</ul>
+</li>
+<li>ASP.NET Core 1.0 为创建Web应用程序</li>
+<li>不是所有应用程序都易于改变为.NET Core方式<ul>
+<li>.NET Framework虽然更新周期更长，但是依然会更新下去</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-8-选择技术，继续前行"><a href="#1-2-8-选择技术，继续前行" class="headerlink" title="1.2.8 选择技术，继续前行"></a>1.2.8 选择技术，继续前行</h3><ul>
+<li>旧技术 - 新技术：<ul>
+<li>Windos Forms - WPF</li>
+<li>Web Forms - MVC6/.NET Core</li>
+<li>LINQ to SQL - Entity Framework</li>
+<li>System.AddIn - System.Activity.Managed;</li>
+</ul>
+</li>
+<li>只为改变现有应用程序而是用新技术是没有意义的<ul>
+<li>维护代码周期长</li>
+<li>开发周期长</li>
+<li>以上问题可以适当考虑换新的语言方式</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-3-NET2015"><a href="#1-3-NET2015" class="headerlink" title="1.3 .NET2015"></a>1.3 .NET2015</h2><ul>
+<li>.NET2015为所有.NET技术总称<br><img src="https://i.imgur.com/CpIywsv.jpg" alt=""></li>
+</ul>
+<h3 id="1-3-1-NET-Framework-4-6"><a href="#1-3-1-NET-Framework-4-6" class="headerlink" title="1.3.1 .NET Framework 4.6"></a>1.3.1 .NET Framework 4.6</h3><p><img src="https://i.imgur.com/125VPCH.jpg" alt=""></p>
+<h3 id="1-3-2-NET-Core-1-0-–-1-3-3-程序集"><a href="#1-3-2-NET-Core-1-0-–-1-3-3-程序集" class="headerlink" title="1.3.2 .NET Core 1.0 – 1.3.3 程序集"></a>1.3.2 .NET Core 1.0 – 1.3.3 程序集</h3><p><img src="https://i.imgur.com/oDkOads.jpg" alt=""></p>
+<h3 id="1-3-4-NuGet包"><a href="#1-3-4-NuGet包" class="headerlink" title="1.3.4 NuGet包"></a>1.3.4 NuGet包</h3><p><img src="https://i.imgur.com/C4mLKmA.jpg" alt=""></p>
+<h3 id="1-3-5-公共语言运行库（CLR）"><a href="#1-3-5-公共语言运行库（CLR）" class="headerlink" title="1.3.5 公共语言运行库（CLR）"></a>1.3.5 公共语言运行库（CLR）</h3><p><img src="https://i.imgur.com/ybZtR9J.jpg" alt=""></p>
+<h3 id="1-3-6-NET-Native-–-1-3-7-Windos运行库"><a href="#1-3-6-NET-Native-–-1-3-7-Windos运行库" class="headerlink" title="1.3.6 .NET Native – 1.3.7 Windos运行库"></a>1.3.6 .NET Native – 1.3.7 Windos运行库</h3><p><img src="https://i.imgur.com/0BgDTgl.jpg" alt=""></p>
+<h2 id="1-4-Hello，World-–-1-5-NET4-6编译"><a href="#1-4-Hello，World-–-1-5-NET4-6编译" class="headerlink" title="1.4 Hello，World – 1.5.NET4.6编译"></a>1.4 Hello，World – 1.5.NET4.6编译</h2><p><img src="https://i.imgur.com/TZcGbMb.jpg" alt=""></p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/02/14/program/csharp/cpt1_NETApplicationFrame /';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/02/14/program/csharp/cpt1_NETApplicationFrame /'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
