@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			
+    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">NextLeaves</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/program/">program</a></li><li><a class="category-link" href="/categories/unity3d/">unity3d</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/NextLeaves" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/iI24evE.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 5 Unmange and mange source</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="第五章-托管资源和非托管"><a href="#第五章-托管资源和非托管" class="headerlink" title="第五章 托管资源和非托管"></a>第五章 托管资源和非托管</h1><ul>
+<li>Wrote : 2017-12-4 13:30:00</li>
+<li><p>Name  : NextLeaves</p>
+</li>
+<li><p>运行期间在<strong>栈</strong>和<strong>堆</strong>上分配空间</p>
+</li>
+<li>垃圾回收</li>
+<li>使用析构函数和实现<strong>IDispose</strong>接口来释放非托管资源</li>
+<li>C#中使用指针的语法</li>
+<li>使用指针实现基于栈的高性能数组</li>
+<li>平台调用，访问本机API</li>
+</ul>
+<hr>
+<h2 id="1-资源"><a href="#1-资源" class="headerlink" title="1. 资源"></a>1. 资源</h2><ul>
+<li>资源：是一个被反复使用的术语</li>
+<li>托管和非托管的资源—存储在托管或本机堆中的对象<ul>
+<li>垃圾收集器（GC）只能释放存储在托管堆中的对象，但是无法释放本机堆中的资源，必须由开发人员进行释放</li>
+</ul>
+</li>
+<li>了解内容：<ol>
+<li>GC如果工作？</li>
+<li>什么数据类型存储在堆栈的什么位置，以及方式</li>
+<li>什么是<strong>大小对象堆</strong></li>
+<li>以及框架中存在的本地的方式，比如文件包装了一个本地文件的句柄，需要程序员自己进行释放</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-后台内存管理"><a href="#2-后台内存管理" class="headerlink" title="2. 后台内存管理"></a>2. 后台内存管理</h2><ul>
+<li>C#的其中一个优点是程序员不需要关心任何编写的托管代码部分，因为其中存在CLR的GC机制来处理和释放所有托管中的代码；已至于简化C#的后续处理事情，像C++一样更高的效率来处理应用程序</li>
+<li>但是程序员也应该理解，分配内容时，在内存分配的一些机制和方式</li>
+</ul>
+<h3 id="2-1-值数据类型"><a href="#2-1-值数据类型" class="headerlink" title="2.1 值数据类型"></a>2.1 值数据类型</h3><ul>
+<li>windos使用的虚拟寻址系统</li>
+<li>32位处理器在处理32位应用程序时，只能利用4Gb的内存空间<ul>
+<li>其中内存存储空间包括：<ol>
+<li>可执行代码</li>
+<li>代码加载的所有DLL</li>
+<li>以及程序在实际上包含了所有的变量</li>
+</ol>
+</li>
+<li>这个空间被称为虚拟空间和虚拟地址或者虚拟内存</li>
+</ul>
+</li>
+<li>在编译器中，Debug模式下，可以使用x86和x64不同模式下调试</li>
+<li>虚拟内存单元，都是从0开始往上开始排序的</li>
+<li>虚拟内存中有一个区域叫做<strong>stack</strong>，存储不是对象成员的值类型</li>
+<li>对于作用域的相关问题：<ul>
+<li>先分配的变量，和后分配的变量，其后者的作用域更短</li>
+<li>栈释放变量的时候，总是和分配变量的顺序相反，这就是栈的工作方式</li>
+<li>什么是<strong>块作用域</strong>和<strong>结构作用域</strong>？</li>
+</ul>
+</li>
+<li>栈的存储方式：栈从上往下进行存储，即从高内存地址到低内存地址的过程存储</li>
+<li>如果像是i，j这种同时分配的栈类型的数据；对于程序员来说，谁先进行分配的已经不重要了，因为运行时会保证先分配的空间会后被释放，也就保证了正常的生存周期</li>
+</ul>
+<h3 id="2-2-引用数据类型"><a href="#2-2-引用数据类型" class="headerlink" title="2.2 引用数据类型"></a>2.2 引用数据类型</h3><ul>
+<li>栈具有高性能的优势，但是在存储多数据的情况下，且很长时间后还能继续使用的话，就要使用new创建的类型，来在heap中生成对象</li>
+<li>heap的分配方式，从下往上进行分配的，所以空闲堆在空间的上方</li>
+<li>可以在栈中使用两个引用变量，这样栈中存在两个引用变量指向栈中的数据实例；只要有变量实例有引用栈，则具体的数据不会消失，至于没有引用变量之后，接下来就有GC来处理变量实例的垃圾回收机制</li>
+</ul>
+<h3 id="2-3-垃圾回收"><a href="#2-3-垃圾回收" class="headerlink" title="2.3 垃圾回收"></a>2.3 垃圾回收</h3><ul>
+<li>因为堆中的数据存储的方式不像栈一样，连续的；可能在后面才会删除中间存在未引用的变量实例，所以在GC运行的时候，会释放不再引用的变量实例，然后再把堆中存储的数据实例，依次的向上排列，这样保证下一次分配大数据空间的时候，不需要再次寻找合适的存储空间，保证推中空间的连续使用<ul>
+<li>当然保证栈中引用的修改后的数据存储空间</li>
+</ul>
+</li>
+<li>强制某个地方调用垃圾回收机制：System.GC.Collect():<ul>
+<li>在大量消失对象引用的时候，可以强制调用</li>
+<li>但是仍不能保证所有的未引用的实例被释放</li>
+<li>让GC中待释放的对象，更快的移动到下一代</li>
+</ul>
+</li>
+<li>堆的分布问题：<ul>
+<li><strong>新分配的对象</strong>被称为第0代；直到第一次调用垃圾回收机制时候</li>
+<li>第一次调用GC后遗留下来的对象：被称为第1代，依次根据GC的调用来分布堆中的对象分布</li>
+</ul>
+</li>
+<li>如果超出第0代，或者调用GC的时候，就会进行对象的释放</li>
+<li>保证了释放对象的高效率，一般保存的越久的对象，越不容易释放，保证了越容易释放的对象，排序在相同的位置，更利于垃圾的回收</li>
+<li>另一个提高性能，处理堆上的大对象时：利用<strong>架构处理堆</strong><ul>
+<li>大对象存在自己的大对象托管堆</li>
+<li>大于85000个字节的对象，存储在<strong>非主堆</strong>上，而是<strong>大对象堆</strong>上</li>
+<li>在大对象上执行压缩是比较昂贵的，所以大对象一般不执行压缩操作</li>
+<li>默认在第0代和第1代执行回收和阻塞操作，这样减少总的阻塞时间</li>
+</ul>
+</li>
+<li>另一个提高性能，垃圾回收平衡机制：<ul>
+<li>专用于服务器的垃圾回收</li>
+<li>在虚拟服务器上存在线程池的逻辑，如果单个线程的所利用的空间用完，导致触发垃圾回收机制，这样会同时引起其他线程的垃圾回收机制，这样可能其他线程不需要垃圾回收，这样导致性能很低</li>
+<li>平衡上述过程，按权分配内存，保证内存的相互的足够使用</li>
+</ul>
+</li>
+<li>为了利用包含大量内存硬件，垃圾回收机制添加了<strong>GCSettings.LatencyMode</strong>枚举，控制垃圾回收的方式</li>
+</ul>
+<h2 id="3-强引用和弱引用"><a href="#3-强引用和弱引用" class="headerlink" title="3. 强引用和弱引用"></a>3. 强引用和弱引用</h2><ul>
+<li>只要有一个变量引用类型，则该引用为强引用</li>
+<li><strong>提醒：</strong>使用事件很容易错过引用的清理，此时可以使用弱引用</li>
+<li>弱引用：允许创建和使用对象，但碰巧GC运行，则就会回收对象，并释放内存；由于存在潜在的bug和和性能问题，一般不会这么做<ul>
+<li>弱引用不适合用于小对象，因为弱引用也存在性能消耗，可能比小对象更消耗性能</li>
+<li>WeakReference类，传递一个强引用到该类的构造函数，实现创建一个弱引用<ul>
+<li>Target属性可以返回一个强引用</li>
+<li>IsAlive属性，判断是否还存在实例数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-处理非托管的资源"><a href="#4-处理非托管的资源" class="headerlink" title="4. 处理非托管的资源"></a>4. 处理非托管的资源</h2><ul>
+<li>垃圾回收机制无法对非托管资源进行回收；例如（文件句柄、网络连接、数据库连接）</li>
+<li>在封装托管类时，添加直接或者间接添加非托管类时，需要对此类进行特殊的构造，有两种不同的解决方法：<ol>
+<li>声明一个析构函数（或者终结器），作为类的一个成员</li>
+<li>在类中实现IDisposable结构</li>
+</ol>
+</li>
+</ul>
+<h3 id="1-析构函数或终结器（Finalizer）"><a href="#1-析构函数或终结器（Finalizer）" class="headerlink" title="1. 析构函数或终结器（Finalizer）"></a>1. 析构函数或终结器（Finalizer）</h3><ul>
+<li>C#的源代码中析构函数，实际会被翻译为终结器（Finalizer），重载Object类的Finalize()</li>
+<li><strong>其中一个问题：</strong>因为C#中GC的存在，所以析构函数不一定会立即执行，所以不应该在代码中放置重要的且立即执行的任务，同时也不应加以约束每个析构函数中执行的顺序，因为是不确定性的</li>
+<li><strong>又一个问题：</strong>与析构函数的类会延迟对象从内存中的释放；使用GC所释放的对象资源会立即从内存中释放空间；但是调用析构函数的对象，第一次是调用析构函数，第二次才是从内存中释放空间。运行库使用一个线程来调用所有对象的析构函数，如果析构函数过多，必将影响应用程序的性能</li>
+</ul>
+<h3 id="2-IDisposable接口"><a href="#2-IDisposable接口" class="headerlink" title="2. IDisposable接口"></a>2. IDisposable接口</h3><ul>
+<li>在C#中推荐使用，实现此接口的方式来释放非托管资源；其接口具有的模式（具有语言级的支持），避免了析构函数与GC中存在的问题，导致延迟释放内存</li>
+<li>显式的实现Dispose()，这样精准的控制调用终结器的过程</li>
+<li>保证释放的过程顺利的话，应使用try..catch块，进行保证没有意外出现</li>
+</ul>
+<h3 id="3-using语句的使用"><a href="#3-using语句的使用" class="headerlink" title="3. using语句的使用"></a>3. using语句的使用</h3><ul>
+<li>但是try..catch块会混淆其真正的功能，所以推出using(){}结构的写法，来可以直接在对象超出作用域的时候，自动调用Dispose(0函数，来实现资源的释放</li>
+<li>有的类，比如数据库的连接，通常是使用Close()来关闭非托管资源；Close()函数，只是调用Dispose()函数；所以新类只需要实现IDisposbale接口的方法，然后使用using结构来释放非托管资源</li>
+</ul>
+<h3 id="4-实现IDisposable接口和析构函数"><a href="#4-实现IDisposable接口和析构函数" class="headerlink" title="4. 实现IDisposable接口和析构函数"></a>4. 实现IDisposable接口和析构函数</h3><ul>
+<li>当Dispose()函数未实现，析构函数的实现，作为双重保证 </li>
+<li>GC.SuppressFinalize(this)，代表禁止调用析构函数，表明该类未实现析构函数</li>
+</ul>
+<h3 id="5-IDisposable和终结器的规则"><a href="#5-IDisposable和终结器的规则" class="headerlink" title="5. IDisposable和终结器的规则"></a>5. IDisposable和终结器的规则</h3><ul>
+<li>释放代码是托管代码的一个重要机制</li>
+<li>总结的规则如下：<ol>
+<li>如果该类的成员有实现IDisposable接口的成员，则该类也应该实现DIspose()方法</li>
+<li>实现IDisposable接口，并不意味着一定要实现终结器，因为此机制是生成对象，实现释放资源的方式，会对GC造成一定的性能损失，所在在必要的时候才实现。<strong>比如：发布本机资源，释放本机资源，就需要终结器（未理解的知识点）</strong></li>
+<li>实现了终结器，也应该实现IDisposable接口，这样可以提前释放资源，不必在GC寻找到需要释放资源的时候，再进行资源的释放</li>
+<li>在终结器中，不能访问以终结的对象；终结器的调用顺序是不能加以控制的</li>
+<li>如果在使用一个实现IDispoable接口的方式的对象，在不需要对象的时候调用Dispose()方法，实现对资源的释放；使用using语句比较方法，同时只需要实现IDisposable接口即可</li>
+</ol>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/12/04/Object/Books/Program/PerfessionalProgram/cpt5_ManagedSource/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2017/12/04/Object/Books/Program/PerfessionalProgram/cpt5_ManagedSource/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
