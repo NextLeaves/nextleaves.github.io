@@ -108,128 +108,144 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/tU74WP2.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 5 Singleton Pattern</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/6JTaj3C.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 2 Linear List</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h1 id="第五章-单例模式"><a href="#第五章-单例模式" class="headerlink" title="第五章 单例模式"></a>第五章 单例模式</h1><ul>
-<li>Wrote : 3/2/2018 8:39:18 PM </li>
+                <h1 id="第二章-数据结构"><a href="#第二章-数据结构" class="headerlink" title="第二章 数据结构"></a>第二章 数据结构</h1><ul>
+<li>Wrote : 2/28/2018 2:08:20 PM  </li>
 <li><p>Name  : NextLeaves</p>
 </li>
-<li><p>引出单例模式</p>
+<li><p>线性表的逻辑结构</p>
 </li>
-<li>单例模式的写法</li>
-<li>巧克力工厂的故事</li>
-<li>多线程模式下的单例模式</li>
+<li>顺序存储和链式存储</li>
 </ul>
 <hr>
-<h2 id="1-引出单例模式"><a href="#1-引出单例模式" class="headerlink" title="1. 引出单例模式"></a>1. 引出单例模式</h2><ul>
-<li>单例模式适用的场景：<ul>
-<li>线程池管理，注册表管理，缓存，日志对象，作为打印机驱动的程序对象</li>
-</ul>
-</li>
-<li>不用全局和静态的原因：<ul>
-<li>一开始就生成的资源，如只是偶尔使用，则会造成资源的浪费</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-单例模式的写法"><a href="#2-单例模式的写法" class="headerlink" title="2. 单例模式的写法"></a>2. 单例模式的写法</h2><ul>
-<li>步骤：<ul>
+<h2 id="1-线性表的逻辑结构"><a href="#1-线性表的逻辑结构" class="headerlink" title="1 线性表的逻辑结构"></a>1 线性表的逻辑结构</h2><h3 id="1-1-线性表的基本操作"><a href="#1-1-线性表的基本操作" class="headerlink" title="1.1 线性表的基本操作"></a>1.1 线性表的基本操作</h3><ul>
 <li><ol>
-<li>构造函数私有化</li>
+<li>初始化、销毁</li>
 </ol>
 </li>
 <li><ol>
-<li>创建类中的全局访问点，即GetInstance()</li>
+<li>查找</li>
 </ol>
 </li>
 <li><ol>
-<li>创建uniqueInstance对象</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-与模式“先生”的对话"><a href="#3-与模式“先生”的对话" class="headerlink" title="3. 与模式“先生”的对话"></a>3. 与模式“先生”的对话</h2><ul>
-<li>只生成一个对象，并不是对资源的浪费，更是为了接下来的更好的管理</li>
-<li>没有公共的构造函数，提供全局的访问点，是实现单例模式的重要环节</li>
-</ul>
-<h2 id="4-巧克力工厂的故事"><a href="#4-巧克力工厂的故事" class="headerlink" title="4. 巧克力工厂的故事"></a>4. 巧克力工厂的故事</h2><ul>
-<li>情景：巧克力工厂用于生产巧克力棒，实现的环节是：有一个巧克力加工机器，制作出巧克力棒；对其要求是，必须在加满的时候且没有煮沸过的时候才能煮沸，空的时候，不能进行煮沸，也不能进行收货；只有在满的时候才能进行收货等苛刻的要求</li>
-<li>为此书写一个chocolateBoiler类<ul>
-<li>实现Fill(),Drain(),Boil()</li>
-</ul>
-</li>
-</ul>
-<h2 id="5-单例模式的定义"><a href="#5-单例模式的定义" class="headerlink" title="5. 单例模式的定义"></a>5. 单例模式的定义</h2><ul>
-<li><strong>单例模式：确保一个类只有一个对象，并且提供全局访问点。</strong></li>
-</ul>
-<h2 id="6-问题扩展-多线程下的单例模式"><a href="#6-问题扩展-多线程下的单例模式" class="headerlink" title="6. 问题扩展-多线程下的单例模式"></a>6. 问题扩展-多线程下的单例模式</h2><ul>
-<li>对于多线程下的单例模式，会造成错误的情况，导致创建不一样的对象；原因在于多线程同时创建，造成编译器无法判断哪一个创建的才属于</li>
-<li><strong>volitile</strong>关键字，修饰字段，保证字段在多线程的同时处理下，一直保持最新值</li>
-<li>可以增加一层同步判断<ul>
-<li>java中：修饰构造函数sychronized</li>
-<li>c#中：lock()锁定线程</li>
-</ul>
-</li>
-<li>引发的问题：<ul>
-<li><ol>
-<li>同步判断，会导致性能的下降，一直处于判断状态</li>
+<li>存取</li>
 </ol>
 </li>
 <li><ol>
-<li>其实针对同步，只有第一次才需要同步，后续并不需要同步操作</li>
+<li>插入、删除</li>
+</ol>
+</li>
+<li><ol>
+<li>排序、求长度、判空</li>
 </ol>
 </li>
 </ul>
+<h3 id="1-2-顺序表的实现"><a href="#1-2-顺序表的实现" class="headerlink" title="1.2 顺序表的实现"></a>1.2 顺序表的实现</h3><ul>
+<li>关键字：<ul>
+<li><strong>#define</strong>：用于声明常量；如 <strong>#define INIT_SIZE 100</strong></li>
+<li><strong>typeof</strong>：用于类型别名；如 <strong>typeof int ElemType</strong></li>
+<li><strong>typeof struct{}SqList;</strong>：声明结构体格式</li>
+</ul>
 </li>
-<li>解决办法：<ul>
+<li>线性表的初始化：<ul>
+<li>malloc(byte size)：实现分配存储空间，参数为分配存储空间大小；如INIT_SIZE<em>sizeof(int)，分配的空间强制转换为int类型，(int </em>)</li>
+<li>思考逻辑：<ul>
 <li><ol>
-<li>急切性方案，即等同于全局变量的方式；在一开始的时候就生成好对象，此后就不需要再生成对象了</li>
+<li>是否分配成功；判断指针是否为空</li>
 </ol>
 </li>
 <li><ol>
-<li>双重锁定判断，即先判断是否为空，若为空再同步判断是否为空的方式</li>
+<li>然后初始化各项其他字段</li>
 </ol>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="7-NO-DUMB-QUESTIONS"><a href="#7-NO-DUMB-QUESTIONS" class="headerlink" title="7. NO DUMB QUESTIONS"></a>7. NO DUMB QUESTIONS</h2><ul>
+</li>
+<li>线性表的插入：<ul>
+<li>思考逻辑：<ul>
 <li><ol>
-<li>看似简单的单例模式，实则还是有很多学问？</li>
+<li>判断插入位置是否合法</li>
 </ol>
 </li>
 <li><ol>
-<li>可否用静态方法，替代单例模式？</li>
+<li>判断线性表是否满<ul>
+<li><ol>
+<li>若满，则remalloc(int origin,int size)分配新的空间</li>
 </ol>
 </li>
 <li><ol>
-<li>针对于有类加载器的机制的java，又怎么处理？<ul>
-<li>使用修饰，限制不同类加载器的访问</li>
+<li>再判断是否为空</li>
+</ol>
+</li>
 </ul>
 </li>
 </ol>
 </li>
 <li><ol>
-<li>谣传GC会清理未引用的单例对象，此为java1.2之前版本的bug</li>
+<li>进行插入操作<ul>
+<li><ol>
+<li>后移元素</li>
 </ol>
 </li>
 <li><ol>
-<li>对于单一职责原则，单例模式是否违反？</li>
+<li>插入值</li>
 </ol>
 </li>
 <li><ol>
-<li>单例设为超类，是否有必要继承操作？<ul>
-<li>继承，必须构造器为<strong>公共</strong>或<strong>保护</strong></li>
+<li>更改其他字段参数</li>
+</ol>
+</li>
 </ul>
 </li>
 </ol>
 </li>
 <li><ol>
-<li>全局变量比单例模式差的原因？</li>
+<li>完成插入，返回链表指针</li>
 </ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>线性表的删除：<ul>
+<li>逻辑思考：<ul>
+<li><ol>
+<li>判断删除位置是否正确</li>
+</ol>
+</li>
+<li><ol>
+<li>执行删除操作</li>
+</ol>
+</li>
+<li><ol>
+<li>进行移动元素操作</li>
+</ol>
+</li>
+<li><ol>
+<li>完成删除操作</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>线性表的查找：<ul>
+<li>逻辑思考：<ul>
+<li><ol>
+<li>使用while进行操作，或者for<ul>
+<li>注意点：只要判断while中为true|false既可以获取导出的位置内容</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -294,8 +310,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/03/02/Object/Books/Program/DesignPattern/cpt5_SingletonPattern/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2018/03/02/Object/Books/Program/DesignPattern/cpt5_SingletonPattern/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2018/02/28/Object/Books/Program/DataStructure/cpt2_LinearList/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/02/28/Object/Books/Program/DataStructure/cpt2_LinearList/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
