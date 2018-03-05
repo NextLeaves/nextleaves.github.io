@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			
+    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">NextLeaves</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/designpattern/">designpattern</a></li><li><a class="category-link" href="/categories/program/">program</a></li><li><a class="category-link" href="/categories/structure/">structure</a></li><li><a class="category-link" href="/categories/unity3d/">unity3d</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/NextLeaves" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/4vwkwsO.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 13 Optimize Unity Game</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="第十三章-Unity3d游戏优化"><a href="#第十三章-Unity3d游戏优化" class="headerlink" title="第十三章 Unity3d游戏优化"></a>第十三章 Unity3d游戏优化</h1><ul>
+<li>Wrote : 3/3/2018 10:50:10 AM </li>
+<li><p>Name  : NextLeaves</p>
+</li>
+<li><p>CPU优化</p>
+</li>
+<li>物理组件优化</li>
+<li>内存优化</li>
+<li>代码优化</li>
+<li>GPU优化</li>
+</ul>
+<hr>
+<h2 id="1-unity3d游戏优化入手目标"><a href="#1-unity3d游戏优化入手目标" class="headerlink" title="1. unity3d游戏优化入手目标"></a>1. unity3d游戏优化入手目标</h2><ul>
+<li><strong>Draw Call</strong>是一个必须要提的概念<ul>
+<li>何为此？<strong>DrawCall</strong>是对底层图形程序(OpenGL)的调用，CPU去调用(CPU作为中央处理器，接受程序的指令)</li>
+</ul>
+</li>
+<li><strong>fragment</strong>有可能成为像素的东西<ul>
+<li>属于<strong>vf</strong>，<strong>v</strong>指的是vertex；<strong>f</strong>就指的fragment</li>
+<li>对于GPU有所影响</li>
+</ul>
+</li>
+<li><strong>Batching</strong>将需要多次调用的图像接口的物品组合在一起，然后再一起调用一次接口</li>
+<li><strong>内存分配</strong><ul>
+<li>unity3d自带的内存损耗</li>
+<li>Mono带有的损耗</li>
+<li>托管的那一些东西</li>
+<li>引入自己的几个dll文件</li>
+</ul>
+</li>
+<li>优化注意的三个方面：<ul>
+<li><ol>
+<li>CPU</li>
+</ol>
+</li>
+<li><ol>
+<li>GPU</li>
+</ol>
+</li>
+<li><ol>
+<li>内存</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-CPU方面的优化"><a href="#2-CPU方面的优化" class="headerlink" title="2. CPU方面的优化"></a>2. CPU方面的优化</h2><ul>
+<li>影响CPU效率的方面：<ul>
+<li><ol>
+<li>DrawCall</li>
+</ol>
+</li>
+<li><ol>
+<li>物理组件(physics)</li>
+</ol>
+</li>
+<li><ol>
+<li>GC</li>
+</ol>
+</li>
+<li><ol>
+<li>脚本的代码质量</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-1-对DrawCall的优化"><a href="#2-1-对DrawCall的优化" class="headerlink" title="2.1 对DrawCall的优化"></a>2.1 对DrawCall的优化</h3><ul>
+<li>底层接口调用需要处理许多事情，所以尽量组合需要一起渲染的物体，一起调用底层接口，减少cpu对底层接口的调用<ul>
+<li><ol>
+<li>DrawCallBatching，unity3d在运行时，会组合可以一起调用渲染的物体，减少DrawCall次数</li>
+</ol>
+</li>
+<li><ol>
+<li>把纹理打包成图集，减少材质的使用</li>
+</ol>
+</li>
+<li><ol>
+<li>尽量少的使用反光、阴影之类的效果，因为那会使物体多次渲染</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>使用Draw Call Batching功能<ul>
+<li><ol>
+<li>针对于为什么使用<strong>不同材质</strong>的物体，即使使用了此方法，也无法达到性能提醒，调用次数的下降<ul>
+<li>a. 因为不同的材质，决定了使用了不同的纹理，导致所需的物体不同，导致接口调用的内容不同，即使调用，也无法达到优化的效果</li>
+<li>b. 只有使用相同的材质，使用相同的纹理，才能使用此功能，达到应有的效果</li>
+<li>c. 对于使用的不同纹理的材质，可以将纹理打包成图集，然后使用同一个材质，达到此方法调用的目的</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol>
+<li>分为两种：static batching , dynamic batching<ul>
+<li>static batching：针对于无需移动，同时使用相同材质的物体，达到整合的效果；只需要在物体的static勾选即可</li>
+<li>dynamic batching：<ul>
+<li>此机制是由Unity引擎所进行的，在生成对象的时候，会自动的进行<strong>batching</strong>操作</li>
+<li>针对动态批处理还有部分的约束：（举例：生成prefab的scale不一样，也会导致<strong>batching</strong>失效）<ul>
+<li>a. 动态批处理需要在每个顶点有一定开销，所以仅支持小于900顶点的网格物体</li>
+<li>b. 如果着色器使用顶点位置、法线、UV值三种属性，则只能支持300顶点以下的物体</li>
+<li>c. 若着色器使用顶点位置，法线，UV0,UV1和切向量，那么只支持180顶点以下的物体</li>
+<li>d. 统一缩放的物体，会进行批处理</li>
+<li>e. 使用不同材质的物体，不会进行批处理</li>
+<li>f. 多通道的shader会妨碍批处理操作</li>
+<li>g. 拥有lightingmap的物体含有额外的材质属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-对物理组件优化"><a href="#2-2-对物理组件优化" class="headerlink" title="2.2 对物理组件优化"></a>2.2 对物理组件优化</h3><ul>
+<li><ol>
+<li>针对<strong>Fixed Timestep</strong>的优化使用：<ul>
+<li>此为FixedUpdate的调用次数，通过cpu计算达到模拟物理效果</li>
+<li>选择合适的值，尤为重要，对优化有一定缓解</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol>
+<li>针对<strong>Mesh Collider</strong>的优化使用：<ul>
+<li>勾选convex的组件，可以和其他组件发生效果，但是其开销过大，但精确度高，这就需要权衡游戏的需要</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-3-处理内存，却放CPU受伤的GC"><a href="#2-3-处理内存，却放CPU受伤的GC" class="headerlink" title="2.3 处理内存，却放CPU受伤的GC"></a>2.3 处理内存，却放CPU受伤的GC</h3><ul>
+<li><ol>
+<li>GC意为Garbage Collection，垃圾回收器<ul>
+<li>GC的影响？作为在堆上面没有引用的数据会被GC所释放；但是是通过CPU进行操作的，加重CPU负担；</li>
+<li>什么会被GC释放？存储在堆上的引用类型（比如，类类型，字符串等），像int、float等则为值类型</li>
+<li>GC何时会触发？<ul>
+<li>针对此，C#的GC管理器，会把堆对象分为多级成员，每次判断失去引用的堆数据，会进行释放</li>
+<li>内存不足时</li>
+<li>程序员可以手动调节GC</li>
+</ul>
+</li>
+<li>减少触发GC，从根本优化CPU负担：<ul>
+<li>a. 字符串的连接，实则为生成第三个字符串，然后赋值，前两个则为垃圾</li>
+<li>b. foreach语句会涉及迭代器，据说每一次循环所产生的24bytes的垃圾</li>
+<li>c. 使用gameobject.CompareTag(“human”),而不是if(gameobject.tag==”human”);后者会生成tag的垃圾</li>
+<li>d. 使用“池”，实现资源复用</li>
+<li>e. 最好不使用LINQ命令</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-4-对代码质量的优化"><a href="#2-4-对代码质量的优化" class="headerlink" title="2.4 对代码质量的优化"></a>2.4 对代码质量的优化</h3><ul>
+<li><ol>
+<li>若频繁使用某个对象，则可以保存对象的实例；而不是频繁调用获取</li>
+</ol>
+</li>
+<li><ol>
+<li>不要频繁使用GetComponent()</li>
+</ol>
+</li>
+<li><ol>
+<li>使用内建数组；Vector.zero，而不是new Vector(0,0,0);</li>
+</ol>
+</li>
+<li><ol>
+<li>善用OnBecameVisible()和OnBecameInvisible()来控制Update的执行</li>
+</ol>
+</li>
+<li><ol>
+<li>ref参数的使用</li>
+</ol>
+</li>
+</ul>
+<h2 id="3-对GPU的优化"><a href="#3-对GPU的优化" class="headerlink" title="3. 对GPU的优化"></a>3. 对GPU的优化</h2><ul>
+<li>影响的四个方面：<ul>
+<li><ol>
+<li>填充率：GPU每秒渲染的像素个数</li>
+</ol>
+</li>
+<li><ol>
+<li>复杂率：像素的处理内容，如光照、阴影、复杂的shader等</li>
+</ol>
+</li>
+<li><ol>
+<li>几何体的复杂度：顶点数目的多少</li>
+</ol>
+</li>
+<li><ol>
+<li>CPU的显存带宽</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>处理措施：<ul>
+<li><ol>
+<li>减少物体的顶点数</li>
+</ol>
+</li>
+<li><ol>
+<li>压缩图片，以适应带宽</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-1-减少绘制的数目"><a href="#3-1-减少绘制的数目" class="headerlink" title="3.1 减少绘制的数目"></a>3.1 减少绘制的数目</h3><ul>
+<li>根据减少数目，根据下面七个点：<ul>
+<li><ol>
+<li>保持材质使用尽可能一样，保证Unity可以进行批处理</li>
+</ol>
+</li>
+<li><ol>
+<li>使用纹理图集，具有很少转换，同时批处理更友好</li>
+</ol>
+</li>
+<li><ol>
+<li>若使用<strong>纹理图集和共享材质</strong>，使用：Renderer.sharedMaterial代替Renderer.material</li>
+</ol>
+</li>
+<li><ol>
+<li>使用光照纹理（lightmap），而不是实时光照（real-time light）</li>
+</ol>
+</li>
+<li><ol>
+<li>使用LOD（level of details）</li>
+</ol>
+</li>
+<li><ol>
+<li>遮挡剔除(Occlusion culling)</li>
+</ol>
+</li>
+<li><ol>
+<li>使用mobile版本的shader，简单</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-优化显存带宽"><a href="#3-2-优化显存带宽" class="headerlink" title="3.2 优化显存带宽"></a>3.2 优化显存带宽</h3><ul>
+<li><ol>
+<li>OpenGL ES2.0 使用ETC1格式压缩等，在打包设置有</li>
+</ol>
+</li>
+<li><ol>
+<li>使用MipMap<ul>
+<li>生成一系列的压缩图形缓存，在合适的地方，用合适的图形来渲染；缺点：占用内存；优点：优化显存</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="13-4-内存的优化"><a href="#13-4-内存的优化" class="headerlink" title="13.4 内存的优化"></a>13.4 内存的优化</h2><ul>
+<li><ol>
+<li>内存的分布来源：<ul>
+<li>unity引擎自带的内存大小</li>
+<li>Mono平台的内存大小</li>
+<li>引用的DLL和第三方DLL的内存大小</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="4-1-Unity3d内部的内存"><a href="#4-1-Unity3d内部的内存" class="headerlink" title="4.1 Unity3d内部的内存"></a>4.1 Unity3d内部的内存</h3><ul>
+<li><ol>
+<li>资源：纹理、网格、音频等</li>
+</ol>
+</li>
+<li><ol>
+<li>GameObject和各个组件</li>
+</ol>
+</li>
+<li><ol>
+<li>引擎内部逻辑需要的内存：渲染器、物理系统、粒子系统</li>
+</ol>
+</li>
+</ul>
+<h3 id="4-2-Mono的托管内存"><a href="#4-2-Mono的托管内存" class="headerlink" title="4.2 Mono的托管内存"></a>4.2 Mono的托管内存</h3><ul>
+<li>1.WWW类举例说明<ul>
+<li>LoadFromCacheOrDownload：<ul>
+<li>将解压缩的文件读入内存</li>
+<li>为解压缩文件分配适当的内存空间（缓存）</li>
+<li>解压后的文件写入内存</li>
+<li>关闭分配的缓存空间</li>
+<li>将写入内存的文件，保存到本地硬盘</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/03/03/Object/Books/GameDevelopment/ScriptProgramInUnity3d/cpt13_OptimizeUnitGame/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/03/03/Object/Books/GameDevelopment/ScriptProgramInUnity3d/cpt13_OptimizeUnitGame/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
