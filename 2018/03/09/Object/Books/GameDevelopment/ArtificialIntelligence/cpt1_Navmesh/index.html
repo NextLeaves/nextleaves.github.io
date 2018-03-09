@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			
+    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">NextLeaves</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/designpattern/">designpattern</a></li><li><a class="category-link" href="/categories/program/">program</a></li><li><a class="category-link" href="/categories/structure/">structure</a></li><li><a class="category-link" href="/categories/unity3d/">unity3d</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/NextLeaves" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/majt4Gp.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 1 Navmesh</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="第一章-导航网格"><a href="#第一章-导航网格" class="headerlink" title="第一章 导航网格"></a>第一章 导航网格</h1><ul>
+<li>Wrote : 3/9/2018 14:00:00 AM </li>
+<li><p>Name  : NextLeaves</p>
+</li>
+<li><p>unity3d中内置的导航网格介绍</p>
+</li>
+<li>导航网格的使用方法</li>
+</ul>
+<hr>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><ul>
+<li>人工智能寻路需要特定的格式来表示场景</li>
+<li>unity内置的导航网格可以方便的生成navmesh，便于开发者使用</li>
+</ul>
+<h2 id="2-设置地图"><a href="#2-设置地图" class="headerlink" title="2. 设置地图"></a>2. 设置地图</h2><ul>
+<li><p>提前给出地图的设计展示图，并说明意图</p>
+</li>
+<li><p>使用导航网格的思路：</p>
+<ul>
+<li><ol>
+<li>navigation static设置</li>
+</ol>
+</li>
+<li><ol>
+<li>bake导航网格</li>
+</ol>
+</li>
+<li><ol>
+<li>为寻路对象添加nav mesh agent组件</li>
+</ol>
+</li>
+<li><ol>
+<li>使用脚本控制对象，能够移动到鼠标点击的位置</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>`</p>
+<pre><code>private NavMeshAgent[] navAgents;
+
+void Start()
+{
+    navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
+}
+</code></pre><ul>
+<li>知识点：<ul>
+<li>NavMeshAgent组件</li>
+<li>Camera类的main下的方法ScreenPointToRay函数</li>
+<li>Input类-mousePosition属性</li>
+<li>Ray类，RaycastHIt类</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-1-针对斜坡的导航"><a href="#2-1-针对斜坡的导航" class="headerlink" title="2.1 针对斜坡的导航"></a>2.1 针对斜坡的导航</h3><ul>
+<li>修改Slope参数值，达到能够达到自己场景中所设置的目标高度，此可以让对象达到合适的位置</li>
+<li>如果斜坡和平面无法正确的连接，则可以使用<strong>Off Mesh Links</strong>组件，达到链接的效果</li>
+</ul>
+<h3 id="2-2-NavMeshLayers的作用"><a href="#2-2-NavMeshLayers的作用" class="headerlink" title="2.2 NavMeshLayers的作用"></a>2.2 NavMeshLayers的作用</h3><ul>
+<li>Edit-ProjectSetting-NavmeshLayers 添加自动寻路的标签</li>
+<li>设置对象的寻路属性的方法：<ul>
+<li>选中需要修改导航网格的对象</li>
+<li>打开Navmesh界面，Object菜单栏下修改其Walkable属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-Off-Mesh-Links使用方法"><a href="#2-3-Off-Mesh-Links使用方法" class="headerlink" title="2.3 Off Mesh Links使用方法"></a>2.3 Off Mesh Links使用方法</h3><ul>
+<li>可以unity3d中<strong>自动生成</strong>，当然也可以<strong>手动生成</strong></li>
+<li>使用<strong>自动生成</strong>方法步骤：<ul>
+<li><ol>
+<li>设置对象的static参数值-off mesh links static</li>
+</ol>
+</li>
+<li><ol>
+<li>bake中，可以设置jump distance值，控制跳跃的位置</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>使用<strong>手动生成</strong>方法步骤：<ul>
+<li><ol>
+<li>为场景创建<strong>起点</strong>和<strong>终点</strong>的对象</li>
+</ol>
+</li>
+<li><ol>
+<li>为创建的对象添加组件-<strong>off mesh link</strong>组件</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-本章小结"><a href="#3-本章小结" class="headerlink" title="3. 本章小结"></a>3. 本章小结</h2><ul>
+<li>如何生成导航网格？</li>
+<li>针对于斜坡的网格方式？</li>
+<li>如何区别使用网格layer？</li>
+<li>如何链接断裂的网格？<ul>
+<li>手动</li>
+<li>自动</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/03/09/Object/Books/GameDevelopment/ArtificialIntelligence/cpt1_Navmesh/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/03/09/Object/Books/GameDevelopment/ArtificialIntelligence/cpt1_Navmesh/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
