@@ -108,7 +108,7 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/6JTaj3C.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/xyB1hRW.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
                 <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 2 Linear List</h2></a>
             </div>
             <!-- Post -->
@@ -246,6 +246,91 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<h2 id="2-链表的逻辑结构"><a href="#2-链表的逻辑结构" class="headerlink" title="2. 链表的逻辑结构"></a>2. 链表的逻辑结构</h2><h3 id="2-1-链表的表示和实现"><a href="#2-1-链表的表示和实现" class="headerlink" title="2.1 链表的表示和实现"></a>2.1 链表的表示和实现</h3><ul>
+<li>单链表的实现：<ul>
+<li>关键字：<ul>
+<li><ol>
+<li>typeof struct{}LNode,*LinkList;</li>
+</ol>
+</li>
+<li><ol>
+<li>具有的字段成员：<ul>
+<li>int存储数据</li>
+<li>struct LNode保存下一数据位置</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-链表的初始化"><a href="#2-2-链表的初始化" class="headerlink" title="2.2 链表的初始化"></a>2.2 链表的初始化</h3><ul>
+<li><ol>
+<li>malloc()函数分配空间</li>
+</ol>
+</li>
+<li><ol>
+<li>使用LNode *L，指针来保存数据的引用</li>
+</ol>
+</li>
+<li><ol>
+<li>成功返回指针，失败返回Null</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-3-获取第i个元素的值"><a href="#2-3-获取第i个元素的值" class="headerlink" title="2.3 获取第i个元素的值"></a>2.3 获取第i个元素的值</h3><ul>
+<li><ol>
+<li>通过循环得到值，即循环链表值</li>
+</ol>
+</li>
+<li>注意事项：<ul>
+<li>a. 一般保存引用第一个值为存储指针</li>
+<li>b. p=p-&gt;next;为下移元素</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-4-单链表的查找"><a href="#2-4-单链表的查找" class="headerlink" title="2.4 单链表的查找"></a>2.4 单链表的查找</h3><ul>
+<li><ol>
+<li>同获取一个概念，只是更改为判断手法</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-5-单链表的插入"><a href="#2-5-单链表的插入" class="headerlink" title="2.5 单链表的插入"></a>2.5 单链表的插入</h3><ul>
+<li><ol>
+<li>插入顺序：<ul>
+<li><ol>
+<li>首先是各自的指针保存各自的数据</li>
+</ol>
+</li>
+<li><ol>
+<li>要保证插入数据的时候，链表后续数据不断裂；即先接尾后接头</li>
+</ol>
+</li>
+<li><ol>
+<li>s.data=e;s.next=p-&gt;next;p-&gt;next=s;</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-6-单链表的删除"><a href="#2-6-单链表的删除" class="headerlink" title="2.6 单链表的删除"></a>2.6 单链表的删除</h3><ul>
+<li><ol>
+<li>同查找、获取值一个概念</li>
+</ol>
+</li>
+<li><ol>
+<li>和插入的顺序相反，记得接入后续断开的链</li>
+</ol>
+</li>
+<li><ol>
+<li>最后进行数据的删除，即空间的释放</li>
+</ol>
 </li>
 </ul>
 
