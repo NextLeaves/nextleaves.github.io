@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			
+    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">NextLeaves</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/designpattern/">designpattern</a></li><li><a class="category-link" href="/categories/program/">program</a></li><li><a class="category-link" href="/categories/structure/">structure</a></li><li><a class="category-link" href="/categories/unity3d/">unity3d</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/NextLeaves" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/tU74WP2.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 5 Observer Pattern</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="第二章-观察者模式"><a href="#第二章-观察者模式" class="headerlink" title="第二章 观察者模式"></a>第二章 观察者模式</h1><ul>
+<li>Wrote : 3/5/2018 10:14:46 AM  </li>
+<li><p>Name  : NextLeaves</p>
+</li>
+<li><p>气象监测站的设计</p>
+</li>
+<li>鸭子、老鼠、猫的故事</li>
+<li>五分钟短剧-观察的主题</li>
+<li>定义观察者模式</li>
+<li>办公室的隔间对话</li>
+<li>最终规划气象站</li>
+<li>围炉夜话</li>
+<li>Java内置的OB模式</li>
+</ul>
+<hr>
+<h2 id="1-气象监测站的设计"><a href="#1-气象监测站的设计" class="headerlink" title="1. 气象监测站的设计"></a>1. 气象监测站的设计</h2><ul>
+<li><ol>
+<li>支持扩展的天气预报系统<ul>
+<li>接收来自WeatherData对象获取的数据</li>
+<li>三种内容：<ul>
+<li>目前状况</li>
+<li>气象统计</li>
+<li>简单预报</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>WeatherData类-源代码</li>
+</ul>
+<p>`</p>
+<pre><code>class WeatherData:
+{
+    getTemperature();
+    getHumidity();
+    getPressure();
+    measuremetnsChanged();//设计人员外留的接口
+}
+</code></pre><ul>
+<li>我们应该知道的内容：<ul>
+<li><ol>
+<li>当数据更新时，就会调用最后一个外留接口方法</li>
+</ol>
+</li>
+<li><ol>
+<li>WeatherData类有三个方式获取对应的气象值</li>
+</ol>
+</li>
+<li><ol>
+<li>调用接口后，我们要同步更新我们设计的三个面板的数据值</li>
+</ol>
+</li>
+<li><ol>
+<li>设计的面板还支持自定义功能，便于用户自定义设计</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-1-错误范例"><a href="#1-1-错误范例" class="headerlink" title="1.1 错误范例"></a>1.1 错误范例</h3><p>`</p>
+<pre><code>void MeasurementsChanged()
+{
+    float temperature = getTemperature();
+    float humidity = getHumidity();
+    float pressure = getPressure();
+
+    currentConditionDisplay.update(temperature,humidity,pressure);
+    ```;
+    ```;
+}
+</code></pre><h3 id="1-2-讲解观察者模式"><a href="#1-2-讲解观察者模式" class="headerlink" title="1.2 讲解观察者模式"></a>1.2 讲解观察者模式</h3><ul>
+<li><ol>
+<li>以报社的角度来思考，观察者模式（出版社为Subject，订阅者为Observer）</li>
+</ol>
+</li>
+<li><ol>
+<li>以小动物的角度来思考，观察者模式</li>
+</ol>
+</li>
+<li><ol>
+<li>以HR纳才的角度来思考</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-定义观察者模式"><a href="#2-定义观察者模式" class="headerlink" title="2. 定义观察者模式"></a>2. 定义观察者模式</h2><ul>
+<li><strong>定义了对象之间一对多的依赖关系，当主题对象的状态发生改变的时候，订阅了的对象会收到通知并且自动更新</strong></li>
+<li>Subject接口：具有<strong>注册，移除，通知</strong>三大主要方法</li>
+<li>Observer接口：具有<strong>更新</strong>主要方法</li>
+<li>设计原则：<strong>为了对象之间的松耦合设计而努力。</strong></li>
+</ul>
+<h2 id="3-具体的设计类图"><a href="#3-具体的设计类图" class="headerlink" title="3. 具体的设计类图"></a>3. 具体的设计类图</h2><ul>
+<li><ol>
+<li>首先以接口编程为原则；WeatherData类继承Subject接口，其他的面板继承Observer接口，扩展显示接口为ShowElement接口</li>
+</ol>
+</li>
+<li><ol>
+<li>实现响应的方法：<ul>
+<li>Subject接口具有三大方法：<ul>
+<li>register()</li>
+<li>remove()</li>
+<li>notify()</li>
+</ul>
+</li>
+<li>Observer接口具有方法：<ul>
+<li>update()</li>
+</ul>
+</li>
+<li>ShowElement接口具有的方法：<ul>
+<li>show()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/03/05/Object/Books/Program/DesignPattern/cpt2_ObserverPattern/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/03/05/Object/Books/Program/DesignPattern/cpt2_ObserverPattern/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
