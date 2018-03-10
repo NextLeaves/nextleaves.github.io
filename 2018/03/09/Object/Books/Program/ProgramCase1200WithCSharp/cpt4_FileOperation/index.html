@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			
+    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">NextLeaves</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/designpattern/">designpattern</a></li><li><a class="category-link" href="/categories/git/">git</a></li><li><a class="category-link" href="/categories/program/">program</a></li><li><a class="category-link" href="/categories/structure/">structure</a></li><li><a class="category-link" href="/categories/unity3d/">unity3d</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/NextLeaves" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/gmyFBqq.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 4 File Operation</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="第四章-文件操作"><a href="#第四章-文件操作" class="headerlink" title="第四章 文件操作"></a>第四章 文件操作</h1><ul>
+<li>Wrote : 3/9/2018 11:25:36 PM </li>
+<li><p>Name  : NextLeaves</p>
+</li>
+<li><ol>
+<li>文件基本操作</li>
+</ol>
+</li>
+<li><ol>
+<li>文件夹基本操作</li>
+</ol>
+</li>
+<li><ol>
+<li>文件流操作</li>
+</ol>
+</li>
+<li><ol>
+<li>加密、解密及解压文件</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="1-文件基本操作"><a href="#1-文件基本操作" class="headerlink" title="1. 文件基本操作"></a>1. 文件基本操作</h2><h3 id="1-1-获取文件信息"><a href="#1-1-获取文件信息" class="headerlink" title="1.1 获取文件信息"></a>1.1 获取文件信息</h3><p>1) 获取文件长度：</p>
+<ul>
+<li>名称空间：System.IO;</li>
+<li>File类的Open()</li>
+<li>FileStream类的Length值</li>
+<li>OpenFileDialog类：用于打开选择window文件</li>
+</ul>
+<p>2）获取文件扩展名：</p>
+<ul>
+<li>利用Substring方法进行获取扩展名</li>
+<li>LastIndexOf()</li>
+</ul>
+<p>3）获取文件创建时间</p>
+<ul>
+<li>FileInfo</li>
+<li>CreationTime()</li>
+</ul>
+<p>4）文件上一次修改时间</p>
+<ul>
+<li>FileInfo</li>
+<li>LastWriteTime</li>
+</ul>
+<p>5）获取路径无效字符</p>
+<ul>
+<li>Path</li>
+<li>GetInvalidPathChars()</li>
+</ul>
+<p>6）创建文件、删除文件</p>
+<ul>
+<li>File</li>
+<li>Creat()</li>
+<li>Delete()</li>
+</ul>
+<p>7）设置随机的文件名，文件夹名</p>
+<ul>
+<li>Guid</li>
+<li>NewGuid()</li>
+</ul>
+<p>8）建立临时文件</p>
+<ul>
+<li>Path</li>
+<li>GetTempFilePath():创建一个0字节的临时文件，用于临时保存</li>
+<li>AppendText()</li>
+<li>FileInfo</li>
+<li>StreamWriter</li>
+</ul>
+<p>9）根据日期动态建立文件</p>
+<ul>
+<li>DateTime</li>
+<li>Now属性</li>
+<li>File</li>
+<li>Create()</li>
+</ul>
+<p>10）清空回收站的所有文件</p>
+<ul>
+<li>Directory</li>
+</ul>
+<h2 id="2-文件夹基本操作"><a href="#2-文件夹基本操作" class="headerlink" title="2. 文件夹基本操作"></a>2. 文件夹基本操作</h2><h2 id="3-文件流操作"><a href="#3-文件流操作" class="headerlink" title="3. 文件流操作"></a>3. 文件流操作</h2><h2 id="4-加密、解密及解压文件"><a href="#4-加密、解密及解压文件" class="headerlink" title="4. 加密、解密及解压文件"></a>4. 加密、解密及解压文件</h2>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/03/09/Object/Books/Program/ProgramCase1200WithCSharp/cpt4_FileOperation/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/03/09/Object/Books/Program/ProgramCase1200WithCSharp/cpt4_FileOperation/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
