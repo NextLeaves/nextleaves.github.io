@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	 <link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			
+    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    
+    	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+
+			    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">NextLeaves</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/designpattern/">designpattern</a></li><li><a class="category-link" href="/categories/git/">git</a></li><li><a class="category-link" href="/categories/program/">program</a></li><li><a class="category-link" href="/categories/structure/">structure</a></li><li><a class="category-link" href="/categories/unity3d/">unity3d</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+		            
+		                <li><a href="https://github.com/NextLeaves" class="icon fa-github"><span class="label">GitHub</span></a></li>
+		            
+		            
+		            
+		            
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.imgur.com/XBiiMqE.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >cpt 20 LINQ</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="第二十章-LINQ"><a href="#第二十章-LINQ" class="headerlink" title="第二十章 LINQ"></a>第二十章 LINQ</h1><ul>
+<li>Wrote : 3/25/2018 15:48:00 PM </li>
+<li><p>Name  : NextLeaves</p>
+</li>
+<li><p>Linq to XML</p>
+</li>
+<li>Linq提供程序</li>
+<li>Linq查询语法</li>
+<li>Linq方法语法</li>
+<li>Lambda表达式</li>
+<li>对查询结果排序</li>
+<li>聚合函数</li>
+<li>SelectDistinctQuery</li>
+<li>组合查询</li>
+<li>连接</li>
+</ul>
+<hr>
+<h2 id="1-Linq-to-XML"><a href="#1-Linq-to-XML" class="headerlink" title="1. Linq to XML"></a>1. Linq to XML</h2><ul>
+<li>using System.Xml.Linq;</li>
+<li>using System.Linq;</li>
+<li>相关处理类：<ul>
+<li>XDocument</li>
+<li>XElement</li>
+<li>XAttribute</li>
+<li>不常用类：XDeclaration;XComment;XProcessingInstruction</li>
+</ul>
+</li>
+<li>处理片段XML文档，即不适用XDocument即可</li>
+<li>XElement类：<ul>
+<li>Save(string path：绝对路径)</li>
+<li>static Load(string path：绝对路径)</li>
+</ul>
+</li>
+<li>XDocument和XElement都继承与Linq to XML的<strong>XContainer</strong>类</li>
+</ul>
+<h2 id="2-Linq-提供程序"><a href="#2-Linq-提供程序" class="headerlink" title="2. Linq 提供程序"></a>2. Linq 提供程序</h2><ul>
+<li>Linq to Objects</li>
+<li>Linq to XML</li>
+<li>Linq to Entities</li>
+<li>Linq to Data Set：对旧的.NET进行支持</li>
+<li>Linq to SQL：取代Linq to Entities</li>
+<li>PLINQ：并行处理Linq操作</li>
+<li>Linq to Json：Newtonsoft包，支持json到xml的转化</li>
+</ul>
+<h2 id="3-LInq-查询语法"><a href="#3-LInq-查询语法" class="headerlink" title="3. LInq 查询语法"></a>3. LInq 查询语法</h2><p>`</p>
+<pre><code>strng[] names = {&quot;xiaoming&quot;,&quot;Bob&quot;};
+var query = from n in names
+            where n.StartsWith(&quot;s&quot;)
+            select n;
+</code></pre><ul>
+<li>用<strong>var</strong>关键字声明结果变量；（看起来像是一个集合，从技术上讲其实不是）<ul>
+<li>返回值实现：IEnumerable<t></t></li>
+</ul>
+</li>
+<li><strong>from</strong>关键字用于声明查询的数据源（必须是可枚举的，数组或者集合）<ul>
+<li>可枚举：支持IEnumerable</li>
+</ul>
+</li>
+<li><strong>where</strong>关键字用于筛选需要的数据，判断为bool值</li>
+<li><strong>select</strong>关键字选择对于数据有趣的部分（必须存在）</li>
+<li><strong>foreach</strong>实现对数据的输出，称为延迟查询</li>
+</ul>
+<h2 id="4-LINQ-方法语法"><a href="#4-LINQ-方法语法" class="headerlink" title="4. LINQ 方法语法"></a>4. LINQ 方法语法</h2><ul>
+<li>实际上Linq的<strong>查询语法</strong>就是间接的使用<strong>方法语法</strong>来实现数据查询的<ul>
+<li>建议尽量使用<strong>查询语法</strong>，需要的时候使用<strong>方法语法</strong></li>
+</ul>
+</li>
+<li><strong>Lambda表达式</strong>一词来源于微积分</li>
+</ul>
+<p>`</p>
+<pre><code>n =&gt; n&gt;2
+(a,b) =&gt; a+b;
+
+var query = name.Where(n=&gt;n.StartsWith(&quot;S&quot;));
+</code></pre><h2 id="5-排序查询结果"><a href="#5-排序查询结果" class="headerlink" title="5. 排序查询结果"></a>5. 排序查询结果</h2><ul>
+<li><strong>orderby</strong>关键字，用于排序<ul>
+<li>orderby n ; orderby n descending</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-查询大型数据集"><a href="#6-查询大型数据集" class="headerlink" title="6. 查询大型数据集"></a>6. 查询大型数据集</h2><ul>
+<li>生成大数据进行查询语法，查询数据</li>
+</ul>
+<h2 id="7-聚合运算符"><a href="#7-聚合运算符" class="headerlink" title="7. 聚合运算符"></a>7. 聚合运算符</h2><ul>
+<li>用于分析大数据的内容，而不必全部显示出来</li>
+<li>相关函数：<ul>
+<li>Count()，LongCount()</li>
+<li>Max()</li>
+<li>Min()</li>
+<li>Average()</li>
+<li>Sum()</li>
+<li>高级聚合函数：<ul>
+<li>Aggregate</li>
+</ul>
+</li>
+<li>针对于改变类型（防止溢出）：numbers.Sum(n=&gt;(long)n);</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-单值查询"><a href="#8-单值查询" class="headerlink" title="8. 单值查询"></a>8. 单值查询</h2><ul>
+<li>Distinct()：实现对重复值的删除，只输出未重复的值</li>
+<li>Select()：实现对感兴趣的数据的选择</li>
+</ul>
+<p>`</p>
+<pre><code>var query = customers.Select(c=&gt;c.Region).Distinct();
+</code></pre><h2 id="9-多级排序"><a href="#9-多级排序" class="headerlink" title="9. 多级排序"></a>9. 多级排序</h2><p>`</p>
+<pre><code>var query = from c in customers
+            orderby c.Name,c.Region,c.Sex
+            select new {c.ID,c.Region,c.County};
+</code></pre><h2 id="10-组合查询"><a href="#10-组合查询" class="headerlink" title="10. 组合查询"></a>10. 组合查询</h2><p>`</p>
+<pre><code>var queryResult = from c in customers
+                    group c by c.Region into cg
+                    select new {TotalSales=cg.Sum(s=&gt;s.Sales),Region=cg.Key};
+
+var queryOrder = from cg in queryResult
+                    orderby cg.TotalSales descending
+                    select cg;
+</code></pre><ul>
+<li>组的结果集实现了Linq接口IGrouping，支持Key属性</li>
+</ul>
+<h2 id="11-Join查询"><a href="#11-Join查询" class="headerlink" title="11. Join查询"></a>11. Join查询</h2><p>`</p>
+<pre><code>var queryResult = from c in customers
+                    join o in orders on c.ID equals o.ID
+                    select new {c.Name,c.Amount,o.ID,o.Price};
+</code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/03/26/Object/Books/Program/BeginingProgram/cpt20_LINQ/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/03/26/Object/Books/Program/BeginingProgram/cpt20_LINQ/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+            	<span id="busuanzi_container_site_pv">2018总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
